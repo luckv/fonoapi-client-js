@@ -8,7 +8,7 @@ A javascript client for **FonoApi - Mobile Device Description API** https://gith
 
 All these apis are covered (at the time I'm writing, *June 2019*) by **90%** approximately of all the browsers installed worldwide. On [caniuse.com](https://caniuse.com/) you can find more information about api availability on browsers. Anyway you can use a wrapper for these features.
 
-##### Why modern web apis and not a framework?
+#### Why modern web apis and not a framework?
 
 I write a similar api because I think that modern features of javascript, like **promises** and the **fetch api** should be used by developers more frequently. So we motivate browser developers to implement these new features more quickly! Modern apis make writing code more **simple** and intuitive, and make it run without downloading external, sometimes heavy in terms on **network bandwith**, libraries like jQuery. 
 
