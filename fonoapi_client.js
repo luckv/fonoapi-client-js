@@ -20,6 +20,18 @@ const FonoApiClient = (() => {
         return temp
     }
 
+    /**
+     * @returns {Promise<any>} A promise that resolves to a javascript object decoded from the json response body
+     */
+    function parseResponse(response) {
+        Promise.resolve(response)
+            .then(body => body.json())
+            .then(results => {
+                if (results.status === "error")
+                    return Promise.reject(results)
+            })
+    }
+
     const fonoApiEndpoint = "https://fonoapi.freshpixl.com/"
 
     /**
@@ -36,7 +48,7 @@ const FonoApiClient = (() => {
             method: "GET",
             headers: { "Content-Type": "application/json" },
         })
-            .then(body => body.json())
+            .then(parseResponse)
     }
 
     /**
@@ -55,7 +67,7 @@ const FonoApiClient = (() => {
             headers: { "Content-Type": "application/json" },
             body: typeof body == "undefined" ? JSON.stringify({}) : JSON.stringify(body)
         })
-            .then(body => body.json())
+            .then(parseResponse)
     }
 
     /**
@@ -102,7 +114,6 @@ const FonoApiClient = (() => {
     }
 
     const getLatestEndpoint = new URL("/v1/getlatest", fonoApiEndpoint).href
-
     /**
      * 
      * @param {string} brand Brand that produces the phone
