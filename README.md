@@ -38,19 +38,22 @@ Search for a device with the specified brand and name.
 
 Accepts the following arguments:
 
-- **brand** - A string. It's **not** optional. The brand that produces the device to search.
 - **device** - A string. It's **not** optional. Name or part of the name of the device to search.
+- **brand** - A string. It's optional. The brand that produces the device to search.
 - **offsetPosition** - A positive integer. It's optional. When a set of results is returned you can get a specific device by passing the position of your device on the result set. Starts from 0. Default returns all possible results.
 
 Returns: A promise that resolves to an array of devices.
 
 ```javascript
+//Declaration
+function getDevice(device: string, brand?: string, offsetPosition?: number) => Promise<object[]>
+
 //Examples
 //Obtain all google pixel phones and print them to console.log
-var promiseA = FonoApiClient.getDevice("google", "pixel").then(console.log)
+var promiseA = FonoApiClient.getDevice("pixel", "google").then(console.log)
 
 //Obtain the second google pixel phone (as we have the previous request) and print it to console.log
-var promiseB = FonoApiClient.getDevice("google", "pixel", 2)
+var promiseB = FonoApiClient.getDevice("pixel", "google", 2)
 	.then(devices => device[0]) //Pick the first device, we have only one
 	.then(console.log)
 ```
@@ -67,6 +70,9 @@ Accepts the following arguments:
 Returns: A promise that resolves to an array of devices.
 
 ```javascript
+//Declaration
+function getLatest(brand: string, limit?: number) => Promise<object[]>
+    
 //Examples
 //Obtain all the latest google phones usign the server limit and print them to console.log
 var promiseA = FonoApiClient.getLatest("google").then(console.log)

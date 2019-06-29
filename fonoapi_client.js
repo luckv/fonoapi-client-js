@@ -81,13 +81,12 @@ const FonoApiClient = (() => {
     const getDeviceEndpoint = new URL("/v1/getdevice", fonoApiEndpoint).href
     /**
      * 
-     * @param {string} token Token to make requests
+     * @param {string} device Name or part of the name of the phone to device. 
      * @param {string} brand Brand that produces the device
-     * @param {string} device Name or part of the name of the phone to device
      * @param {number} offsetPosition When a set of results is returned you can get a specific device by passing the position of your device on the result set. Starts from 0
      * @returns {Promise<object[]>} An array of devices
      */
-    function getDevice_resourceUrl(brand, device, offsetPosition = undefined) {
+    function getDevice_resourceUrl(device, brand = undefined, offsetPosition = undefined) {
         return sendGETRequest(
             getDeviceEndpoint,
             new URLSearchParams(
@@ -106,7 +105,6 @@ const FonoApiClient = (() => {
 
     /**
      * 
-     * @param {strng} token Token to make requests
      * @param {string} brand Brand that produces the phone
      * @param {number} limit Limit the result count. Depending on server implementation, may returns a reduced number of devices than expected
      * @returns {Promise<object[]>} An array of devices
@@ -131,4 +129,5 @@ const FonoApiClient = (() => {
         getLatest: getLatest_resourceUrl,
         getDevice: getDevice_resourceUrl,
     }
+
 })()
