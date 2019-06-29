@@ -21,14 +21,17 @@ const FonoApiClient = (() => {
     }
 
     /**
+     * @param {Response} response
      * @returns {Promise<any>} A promise that resolves to a javascript object decoded from the json response body
      */
     function parseResponse(response) {
         Promise.resolve(response)
             .then(body => body.json())
             .then(results => {
-                if (results.status === "error")
+                if (results.status && results.status === "error")
                     return Promise.reject(results)
+                    
+                return results
             })
     }
 
