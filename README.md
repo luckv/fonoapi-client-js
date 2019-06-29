@@ -23,7 +23,8 @@ The library expose the object **FonoApiClient** wich contains all the methods to
 ```html
 <script src="fonoapi_client.js"></script>
 <script>
-FonoApiClient.setToken("XXXX") //Put your token here
+	FonoApiClient.setToken("XXXX") //Put your token here
+	var token = FonoApiClient.getToken() //Get token
 </script>
 ```
 
