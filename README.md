@@ -32,7 +32,7 @@ The library expose the object **FonoApiClient** wich contains all the methods to
 
 Every endpoint is associated to a method of the same name. The data returned from these methods are arrays of objects containing devices information, as described [here](https://github.com/shakee93/fonoapi/blob/master/resultset.md).
 
-###### Method: getDevice() - endpoint /getdevice (go to [specification](https://github.com/shakee93/fonoapi#method--getdevice-httpsfonoapifreshpixlcomv1getdevice))
+###### Method: getDevice() - endpoint /getdevice (go to [specification](https://github.com/shakee93/fonoapi#method-getdevice-httpsfonoapifreshpixlcomv1getdevice))
 
 Search for a device with the specified brand and name.
 
@@ -58,7 +58,7 @@ var promiseB = FonoApiClient.getDevice("pixel", "google", 2)
 	.then(console.log)
 ```
 
-###### Method: getLatest() - endpoint /getlatest (go to [specification](https://github.com/shakee93/fonoapi#method--getlatest-httpsfonoapifreshpixlcomv1getlatest))
+###### Method: getLatest() - endpoint /getlatest (go to [specification](https://github.com/shakee93/fonoapi#method-getlatest-httpsfonoapifreshpixlcomv1getlatest))
 
 Return the latest phones of one brand. Can limit the result.
 
